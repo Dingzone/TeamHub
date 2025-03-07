@@ -16,8 +16,8 @@
                 <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
                 <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
                 <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">🔔 Notifikasi</a>
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
+                <a href="{{ route('rekap') }}" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
+                <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
                 <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
             </nav>
         </aside>
@@ -42,35 +42,27 @@
             <section>
                 <h3 class="font-semibold text-lg text-gray-600 mb-4">Tasks</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Task Card -->
-                    <div class="bg-white shadow-md p-4 rounded-lg hover:shadow-lg transition-all">
-                        <a href="#" class="block">
-                            <h4 class="font-semibold text-gray-700">Task 1</h4>
-                            <p class="text-sm text-gray-500">Duration: 3 days</p>
-                            <p class="text-sm text-gray-500">Assigned to: John</p>
-                            <p class="text-sm text-gray-500">Status: In Progress</p>
-                        </a>
-                    </div>
+                    <!-- Task Cards -->
+                    @php
+                        $phases = [
+                            'Planning'    => 'taskplanning',
+                            'Analysis'    => 'taskanalysis',
+                            'Design'      => 'taskdesign',
+                            'Implementation' => 'taskimplementation',
+                            'Testing'     => 'tasktesting',
+                            'Maintenance' => 'taskmaintenance',
+                        ];
+                    @endphp
 
-                    <!-- Task Card -->
-                    <div class="bg-white shadow-md p-4 rounded-lg hover:shadow-lg transition-all">
-                        <a href="#" class="block">
-                            <h4 class="font-semibold text-gray-700">Task 2</h4>
-                            <p class="text-sm text-gray-500">Duration: 5 days</p>
-                            <p class="text-sm text-gray-500">Assigned to: Jane</p>
-                            <p class="text-sm text-gray-500">Status: Completed</p>
-                        </a>
-                    </div>
-
-                    <!-- Task Card -->
-                    <div class="bg-white shadow-md p-4 rounded-lg hover:shadow-lg transition-all">
-                        <a href="#" class="block">
-                            <h4 class="font-semibold text-gray-700">Task 3</h4>
-                            <p class="text-sm text-gray-500">Duration: 4 days</p>
-                            <p class="text-sm text-gray-500">Assigned to: John</p>
-                            <p class="text-sm text-gray-500">Status: To Do</p>
-                        </a>
-                    </div>
+                    @foreach ($phases as $phaseName => $routeName)
+                        <div class="bg-white shadow-md p-4 rounded-lg hover:shadow-lg transition-all relative cursor-pointer" 
+                             onclick="window.location.href='{{ route($routeName) }}'">
+                            <h4 class="font-semibold text-gray-700">{{ $phaseName }}</h4>
+                            <p class="text-sm text-gray-500" id="duration-{{ $phaseName }}">Start: - | End: -</p>
+                            <button onclick="event.stopPropagation(); editDuration('{{ $phaseName }}')" 
+                                    class="absolute top-2 right-2 text-gray-500">⋮</button>
+                        </div>
+                    @endforeach
                 </div>
             </section>
         </main>
@@ -79,6 +71,14 @@
     <script>
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("hidden");
+        }
+
+        function editDuration(phase) {
+            let startDate = prompt(`Masukkan tanggal mulai untuk ${phase} (YYYY-MM-DD):`);
+            let endDate = prompt(`Masukkan tanggal selesai untuk ${phase} (YYYY-MM-DD):`);
+            if (startDate && endDate) {
+                document.getElementById(`duration-${phase}`).innerText = `Start: ${startDate} | End: ${endDate}`;
+            }
         }
     </script>
 </body>

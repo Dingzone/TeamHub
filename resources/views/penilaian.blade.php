@@ -12,13 +12,13 @@
     <aside class="w-64 bg-white shadow-md h-screen p-6">
         <h1 class="text-xl font-bold mb-8">CollabThink</h1>
         <ul class="space-y-4">
-            <li><a href="{{ route('dashboard') }}" class="flex items-center"><span class="mr-3">🏠</span> Home</a></li>
-            <li><a href="{{ route('proyek') }}" class="flex items-center"><span class="mr-3">📂</span> Proyek</a></li>
-            <li><a href="#" class="flex items-center"><span class="mr-3">📝</span> Notes</a></li>
-            <li><a href="#" class="flex items-center"><span class="mr-3">👥</span> Daftar Tim</a></li>
-            <li><a href="{{ route('rekap') }}" class="flex items-center"><span class="mr-3">📊</span> Rekap</a></li>
-            <li><a href="#" class="flex items-center"><span class="mr-3">📅</span> Daftar Tugas dan Deadline</a></li>
-            <li><a href="#" class="flex items-center"><span class="mr-3">💬</span> Diskusi Tim</a></li>
+        <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
+                <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
+                <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
+                <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
+                <a href="{{ route('rekap') }}" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
+                <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
+                <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
         </ul>
     </aside>
 

@@ -48,6 +48,41 @@ Route::get('/addTask', function () {
     return view('addTask');
 })->name('addTask');
 
+// Route untuk halaman daftar tugas (datugas)
+Route::get('/datugas', function () {
+    return view('datugas');
+})->name('datugas');
+
+// Route untuk halaman Gantt Chart (datugas2) dengan parameter projectId
+Route::get('/datugas2', function () {
+    return view('datugas2');
+})->name('datugas2');
+
+// Route untuk setiap fase
+Route::get('/taskplanning', function () {
+    return view('taskplanning');
+})->name('taskplanning');
+
+Route::get('/taskanalysis', function () {
+    return view('taskanalysis');
+})->name('taskanalysis');
+
+Route::get('/taskdesign', function () {
+    return view('taskdesign');
+})->name('taskdesign');
+
+Route::get('/taskimplementation', function () {
+    return view('taskimplementation');
+})->name('taskimplementation');
+
+Route::get('/tasktesting', function () {
+    return view('tasktesting');
+})->name('tasktesting');
+
+Route::get('/taskmaintenance', function () {
+    return view('taskmaintenance');
+})->name('taskmaintenance');
+
 // Route untuk halaman rekap penilaian (Pilih Dosen atau Mahasiswa)
 Route::get('/rekap', function () {
     return view('rekap');
@@ -57,6 +92,11 @@ Route::get('/rekap', function () {
 Route::get('/penilaian', function () {
     return view('penilaian');
 })->name('penilaian');
+
+// Route untuk halaman penilaian dosen
+Route::get('/penilaian2', function () {
+    return view('penilaian2');
+})->name('penilaian2');
 
 // Route untuk halaman penilaian mahasiswa
 Route::get('/penilaian/mahasiswa', function () {
