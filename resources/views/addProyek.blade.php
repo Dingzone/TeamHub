@@ -12,7 +12,7 @@
         <aside id="sidebar" class="w-64 bg-white shadow-md p-4 hidden md:block">
             <h1 class="text-xl font-bold mb-6">CollabThink</h1>
             <nav class="space-y-4">
-            <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
+                <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
                 <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
                 <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
                 <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
@@ -66,8 +66,8 @@
             projects.push(project);
             localStorage.setItem("projects", JSON.stringify(projects));
 
-            // Arahkan ke halaman dashboard setelah proyek ditambahkan
-            window.location.href = 'proyek.html';
+            // Arahkan ke halaman proyek.blade.php menggunakan route Laravel
+            window.location.href = "{{ route('proyek') }}";
         });
     </script>
 </body>
