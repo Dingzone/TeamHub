@@ -26,13 +26,18 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="content-container w-full max-w-md">
         <h1 class="text-2xl font-bold text-center text-gray-700">CollabThink</h1>
-        <p class="text-center text-gray-600">Masuk Untuk Melanjutkan</p>
+        <p class="text-center text-gray-600">Daftar Untuk Melanjutkan</p>
         
         <form class="mt-4">
-            <input type="username" placeholder="Masukkan Username" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
-            <input type="password" placeholder="Masukkan Password" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+            <input type="email" placeholder="Masukkan Email" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
             
-            <button class="w-full mt-4 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">Masuk</button>
+            <p class="text-xs text-gray-500 mt-2 text-center">
+                Dengan mendaftar, saya menyetujui 
+                <a href="#" class="text-blue-500">Ketentuan Layanan</a> dan 
+                <a href="#" class="text-blue-500">Kebijakan Privasi</a> CollabThink.
+            </p>
+            
+            <button class="w-full mt-4 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">Daftar</button>
         </form>
         
         <div class="relative my-4 flex items-center">
@@ -47,9 +52,11 @@
             Google
         </button>
         
-        <p class="text-center text-gray-500 mt-4">Tidak Punya Akun? 
-            <a href="login.blade.php" class="text-blue-500">Daftar di sini</a>
-        </p>
+        <p class="text-center text-gray-500 mt-4">Sudah punya akun CollabThink? 
+        <a href="{{ route('login') }}" class="text-blue-500">Login di sini</a>
+
+</p>
+
 
         <hr class="w-full border-gray-300">
         
