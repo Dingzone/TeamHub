@@ -1,52 +1,119 @@
+<?php
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProyekController;
-use App\Http\Controllers\ForumController;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\PenilaianController;
-use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\ProfilController;
 
-// Halaman Login
-Route::get('/', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route untuk halaman login
+Route::get('/', function () {
+    return view('login');
+})->name('login');
 
-// Dashboard
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
-    // Proyek
-    Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');
-    Route::get('/proyekDetail/{id}', [ProyekController::class, 'detail'])->name('proyekDetail');
-    Route::get('/addProyek', [ProyekController::class, 'create'])->name('addProyek');
+// Route untuk proses login
+Route::post('/login', function () {
+    // Proses login sederhana
+    $role = request('role'); // Role bisa 'dosen' atau 'mahasiswa'
+    if ($role === 'dosen') {
+        return redirect()->route('penilaian');
+    } else {
+        return redirect()->route('dashboard');
+    }
+})->name('login.submit');
 
-    // Forum
-    Route::get('/forum', [ForumController::class, 'index'])->name('forum');
+// Route untuk halaman dashboard (Mahasiswa)
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
-    // Task Management
-    Route::get('/addTask', [TaskController::class, 'create'])->name('addTask');
-    Route::get('/datugas', [TaskController::class, 'list'])->name('datugas');
-    Route::get('/datugas2/{projectId}', [TaskController::class, 'ganttChart'])->name('datugas2');
+// Route untuk halaman proyek
+Route::get('/proyek', function () {
+    return view('proyek');
+})->name('proyek');
 
-    // Task Phases
-    Route::get('/taskplanning', [TaskController::class, 'taskPlanning'])->name('taskplanning');
-    Route::get('/taskanalysis', [TaskController::class, 'taskAnalysis'])->name('taskanalysis');
-    Route::get('/taskdesign', [TaskController::class, 'taskDesign'])->name('taskdesign');
-    Route::get('/taskimplementation', [TaskController::class, 'taskImplementation'])->name('taskimplementation');
-    Route::get('/tasktesting', [TaskController::class, 'taskTesting'])->name('tasktesting');
-    Route::get('/taskmaintenance', [TaskController::class, 'taskMaintenance'])->name('taskmaintenance');
+// Route untuk halaman tambah proyek
+Route::get('/addProyek', function () {
+    return view('addProyek');
+})->name('addProyek');
 
-    // Penilaian
-    Route::get('/penilaian', [PenilaianController::class, 'index'])->name('penilaian');
-    Route::get('/penilaian2', [PenilaianController::class, 'detail'])->name('penilaian2');
-    Route::get('/penilaian/mahasiswa', [PenilaianController::class, 'mahasiswa'])->name('penilaian.mahasiswa');
+// Route untuk halaman detail proyek
+Route::get('/proyekDetail', function () {
+    return view('proyekDetail');
+})->name('proyekDetail');
 
-    // Rekap dan Laporan
-    Route::get('/rekap', [PenilaianController::class, 'rekap'])->name('rekap');
-    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
+// Route untuk halaman forum diskusi
+Route::get('/forum', function () {
+    return view('forum');
+})->name('forum');
 
-    // Profil
-    Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
-});
+// Route untuk halaman tambah task
+Route::get('/addTask', function () {
+    return view('addTask');
+})->name('addTask');
+
+// Route untuk halaman daftar tugas (datugas)
+Route::get('/datugas', function () {
+    return view('datugas');
+})->name('datugas');
+
+// Route untuk halaman Gantt Chart (datugas2) dengan parameter projectId
+Route::get('/datugas2', function () {
+    return view('datugas2');
+})->name('datugas2');
+
+// Route untuk setiap fase
+Route::get('/taskplanning', function () {
+    return view('taskplanning');
+})->name('taskplanning');
+
+Route::get('/taskanalysis', function () {
+    return view('taskanalysis');
+})->name('taskanalysis');
+
+Route::get('/taskdesign', function () {
+    return view('taskdesign');
+})->name('taskdesign');
+
+Route::get('/taskimplementation', function () {
+    return view('taskimplementation');
+})->name('taskimplementation');
+
+Route::get('/tasktesting', function () {
+    return view('tasktesting');
+})->name('tasktesting');
+
+Route::get('/taskmaintenance', function () {
+    return view('taskmaintenance');
+})->name('taskmaintenance');
+
+// Route untuk halaman rekap penilaian (Pilih Dosen atau Mahasiswa)
+Route::get('/rekap', function () {
+    return view('rekap');
+})->name('rekap');
+
+// Route untuk halaman penilaian dosen
+Route::get('/penilaian', function () {
+    return view('penilaian');
+})->name('penilaian');
+
+// Route untuk halaman penilaian dosen
+Route::get('/penilaian2', function () {
+    return view('penilaian2');
+})->name('penilaian2');
+
+// Route untuk halaman penilaian mahasiswa
+Route::get('/penilaian/mahasiswa', function () {
+    return view('penilaianMahasiswa');
+})->name('penilaian.mahasiswa');
+
+// Route untuk halaman laporan rekapitulasi
+Route::get('/laporan', function () {
+    return view('laporan');
+})->name('laporan');
+
+// Route untuk halaman profil pengguna
+Route::get('/profil', function () {
+    return view('profil');
+})->name('profil');
+
+// Route untuk logout (Sementara hanya redirect ke login)
+Route::get('/logout', function () {
+    return redirect()->route('login');
+})->name('logout');
