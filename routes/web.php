@@ -9,14 +9,14 @@ Route::get('/', function () {
 
 // Route untuk proses login
 Route::post('/login', function () {
-    // Proses login sederhana
-    $role = request('role'); // Role bisa 'dosen' atau 'mahasiswa'
+    $role = request('role');
     if ($role === 'dosen') {
         return redirect()->route('penilaian');
     } else {
         return redirect()->route('dashboard');
     }
 })->name('login.submit');
+
 
 // Route untuk halaman dashboard (Mahasiswa)
 Route::get('/dashboard', function () {
@@ -98,6 +98,14 @@ Route::get('/penilaian2', function () {
     return view('penilaian2');
 })->name('penilaian2');
 
+Route::get('/masukpbl', function () {
+    return view('masukpbl');
+})->name('masukpbl');
+
+Route::get('/masuk2pbl/{kategori}', function ($kategori) {
+    return view('masuk2pbl', ['kategori' => urldecode($kategori)]);
+})->name('masuk2pbl');
+
 // Route untuk halaman penilaian mahasiswa
 Route::get('/penilaian/mahasiswa', function () {
     return view('penilaianMahasiswa');
@@ -112,6 +120,11 @@ Route::get('/laporan', function () {
 Route::get('/profil', function () {
     return view('profil');
 })->name('profil');
+
+Route::get('/kuncikelas', function (\Illuminate\Http\Request $request) {
+    $kelas = $request->query('kelas');
+    return view('kuncikelas', compact('kelas'));
+})->name('kuncikelas');
 
 // Route untuk logout (Sementara hanya redirect ke login)
 Route::get('/logout', function () {

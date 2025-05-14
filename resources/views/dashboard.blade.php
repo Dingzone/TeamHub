@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -18,126 +19,131 @@
         <h1 class="text-xl font-bold mb-6">CollabThink</h1>
         <nav class="space-y-4">
             <a href="#" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
-            <a href="proyek.html" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
+            <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
             <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
             <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
-            <a href="rekap.html" class="block p-2 hover:bg-gray-200 rounded">🔔 Rekap Evaluasi</a>
-            <a href="#" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
-            <a href="forum.html" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
+            <a href="{{ route('rekap') }}" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
+            <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
+            <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
         </nav>
     </aside>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-6 overflow-y-auto">
-      <header class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold">Dashboard</h2>
-        <div class="flex items-center space-x-4">
-          <span class="text-gray-600">Moni Roy</span>
-          <span class="text-sm text-gray-400">Admin</span>
-          <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
-        </div>
-      </header>
+<!-- Main Content -->
+<main class="flex-1 p-6 overflow-y-auto">
+  <header class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold">Dashboard</h2>
+    <div class="flex items-center space-x-4">
+      <span class="text-gray-600">Moni Roy</span>
+      <span class="text-sm text-gray-400">Admin</span>
+      <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
+    </div>
+  </header>
 
-      <!-- Summary Cards -->
-      <div class="grid grid-cols-4 gap-4 mb-6">
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Total Proyek</p>
-          <p class="text-3xl font-bold mt-2">40</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Sedang Berlangsung</p>
-          <p class="text-3xl font-bold mt-2">10</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Selesai</p>
-          <p class="text-3xl font-bold mt-2">9</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Tertunda</p>
-          <p class="text-3xl font-bold mt-2">2</p>
-        </div>
-      </div>
+  <!-- Summary Cards -->
+  <div id="summaryCards" class="grid grid-cols-4 gap-4 mb-6">
+    <div class="bg-white p-4 rounded shadow text-center">
+      <p class="font-semibold text-gray-600">Total Proyek</p>
+      <p class="text-3xl font-bold mt-2">40</p>
+    </div>
+    <div class="bg-white p-4 rounded shadow text-center">
+      <p class="font-semibold text-gray-600">Sedang Berlangsung</p>
+      <p class="text-3xl font-bold mt-2">10</p>
+    </div>
+    <div class="bg-white p-4 rounded shadow text-center">
+      <p class="font-semibold text-gray-600">Selesai</p>
+      <p class="text-3xl font-bold mt-2">9</p>
+    </div>
+    <div class="bg-white p-4 rounded shadow text-center">
+      <p class="font-semibold text-gray-600">Tertunda</p>
+      <p class="text-3xl font-bold mt-2">2</p>
+    </div>
+  </div>
 
-<!-- Proyek Berbasis -->
-<div class="mb-6">
-    <h3 class="text-lg font-semibold mb-2">Pembelajaran Berbasis Proyek</h3>
+  <!-- Proyek Berbasis -->
+  <div id="projectBasedLearning" class="mb-6">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="text-lg font-semibold">Pembelajaran Berbasis Proyek</h3>
+      <a href="{{ route('masukpbl') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+        Masuk PBL +
+      </a>
+    </div>
     <div class="grid grid-cols-4 gap-4">
       <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2"></div>
+        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
         <p class="font-medium">D4 Terapan Teknologi 2022</p>
         <p class="text-xs text-gray-500">PBL - UI/UX</p>
       </div>
       <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2"></div>
+        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
         <p class="font-medium">D4 Sarjana Terapan Teknologi</p>
         <p class="text-xs text-gray-500">PBL - UI/UX</p>
       </div>
       <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2"></div>
+        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
         <p class="font-medium">D4 Sarjana Terapan Teknologi</p>
         <p class="text-xs text-gray-500">PBL - UI/UX</p>
       </div>
       <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2"></div>
+        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
         <p class="font-medium">D4 Sarjana Terapan Teknologi</p>
         <p class="text-xs text-gray-500">PBL - UI/UX</p>
       </div>
     </div>
   </div>
 
-      <!-- Tugas Diberikan -->
-      <div class="mb-6">
-        <h3 class="text-lg font-semibold mb-2">Tugas Diberikan Kepada Saya (1)</h3>
-        <div class="overflow-x-auto">
-          <table class="min-w-full bg-white rounded shadow text-left">
-            <thead class="bg-gray-200 text-gray-600">
-              <tr>
-                <th class="px-4 py-2">Sub-Tugasas</th>
-                <th class="px-4 py-2">Mulai</th>
-                <th class="px-4 py-2">Berakhir</th>
-                <th class="px-4 py-2">Diberikan</th>
-                <th class="px-4 py-2">Prioritas</th>
-                <th class="px-4 py-2">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t">
-                <td class="px-4 py-2">Requirement Gathering</td>
-                <td class="px-4 py-2">11/03/2025</td>
-                <td class="px-4 py-2">11/06/2025</td>
-                <td class="px-4 py-2">
-                  <div class="flex space-x-2">
-                    <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Y</span>
-                    <span class="bg-purple-500 text-white px-2 py-1 rounded-full text-xs">DN</span>
-                  </div>
-                </td>
-                <td class="px-4 py-2">🔽</td>
-                <td class="px-4 py-2">
-                  <div class="flex space-x-2">
-                    <button onclick="handleDeleteTask()" class="text-red-500 hover:text-red-700" title="Hapus">🗑</button>
-                    <button onclick="handleEditTask()" class="text-yellow-500 hover:text-yellow-700" title="Edit">✏️</button>
-                    <button onclick="handleUploadAttachment()" class="text-blue-500 hover:text-blue-700" title="Upload Lampiran">📎</button>
-                    <button onclick="handleCommentTask()" class="text-green-500 hover:text-green-700" title="Komentar">📤</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+  <!-- Tugas Diberikan -->
+  <div id="assignedTasks" class="mb-6">
+    <h3 class="text-lg font-semibold mb-2">Tugas Diberikan Kepada Saya (1)</h3>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white rounded shadow text-left">
+        <thead class="bg-gray-200 text-gray-600">
+          <tr>
+            <th class="px-4 py-2">Sub-Tugasas</th>
+            <th class="px-4 py-2">Mulai</th>
+            <th class="px-4 py-2">Berakhir</th>
+            <th class="px-4 py-2">Diberikan</th>
+            <th class="px-4 py-2">Prioritas</th>
+            <th class="px-4 py-2">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t">
+            <td class="px-4 py-2">Requirement Gathering</td>
+            <td class="px-4 py-2">11/03/2025</td>
+            <td class="px-4 py-2">11/06/2025</td>
+            <td class="px-4 py-2">
+              <div class="flex space-x-2">
+                <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Y</span>
+                <span class="bg-purple-500 text-white px-2 py-1 rounded-full text-xs">DN</span>
+              </div>
+            </td>
+            <td class="px-4 py-2">🔽</td>
+            <td class="px-4 py-2">
+              <div class="flex space-x-2">
+                <button onclick="handleDeleteTask()" class="text-red-500 hover:text-red-700" title="Hapus">🗑</button>
+                <button onclick="handleEditTask()" class="text-yellow-500 hover:text-yellow-700" title="Edit">✏️</button>
+                <button onclick="handleUploadAttachment()" class="text-blue-500 hover:text-blue-700" title="Upload Lampiran">📎</button>
+                <button onclick="handleCommentTask()" class="text-green-500 hover:text-green-700" title="Komentar">📤</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-      <!-- Komentar -->
+  <!-- Komentar -->
+  <div id="comments">
+    <h3 class="text-lg font-semibold mb-2">Komentar Diberikan Kepada Saya (1)</h3>
+    <div class="bg-white p-4 rounded shadow flex items-start space-x-4">
+      <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">Y</div>
       <div>
-        <h3 class="text-lg font-semibold mb-2">Komentar Diberikan Kepada Saya (1)</h3>
-        <div class="bg-white p-4 rounded shadow flex items-start space-x-4">
-          <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">Y</div>
-          <div>
-            <p class="font-semibold">Hasil Wawancara Kurang Lengkap</p>
-            <p class="text-sm text-gray-500">Requirement Gathering</p>
-          </div>
-        </div>
+        <p class="font-semibold">Hasil Wawancara Kurang Lengkap</p>
+        <p class="text-sm text-gray-500">Requirement Gathering</p>
       </div>
-    </main>
+    </div>
+  </div>
+</main>
   </div>
 
   <!-- Dummy JavaScript Actions -->
@@ -158,5 +164,6 @@
       alert("Buka komentar atau kirim laporan.");
     }
   </script>
+
 </body>
 </html>
