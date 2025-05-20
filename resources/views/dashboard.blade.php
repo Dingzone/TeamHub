@@ -40,56 +40,52 @@
   </header>
 
   <!-- Summary Cards -->
-  <div id="summaryCards" class="grid grid-cols-4 gap-4 mb-6">
-    <div class="bg-white p-4 rounded shadow text-center">
-      <p class="font-semibold text-gray-600">Total Proyek</p>
-      <p class="text-3xl font-bold mt-2">40</p>
+ <!-- Summary Cards -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">Jumlah Kelas</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">Jumlah Mahasiswa</p>
+        <p class="text-3xl font-bold mt-2">–</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">Jumlah Proyek</p>
+        <p class="text-3xl font-bold mt-2">–</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">Jumlah Tugas</p>
+        <p class="text-3xl font-bold mt-2">–</p>
+      </div>
     </div>
-    <div class="bg-white p-4 rounded shadow text-center">
-      <p class="font-semibold text-gray-600">Sedang Berlangsung</p>
-      <p class="text-3xl font-bold mt-2">10</p>
-    </div>
-    <div class="bg-white p-4 rounded shadow text-center">
-      <p class="font-semibold text-gray-600">Selesai</p>
-      <p class="text-3xl font-bold mt-2">9</p>
-    </div>
-    <div class="bg-white p-4 rounded shadow text-center">
-      <p class="font-semibold text-gray-600">Tertunda</p>
-      <p class="text-3xl font-bold mt-2">2</p>
-    </div>
-  </div>
 
   <!-- Proyek Berbasis -->
   <div id="projectBasedLearning" class="mb-6">
-    <div class="flex justify-between items-center mb-2">
-      <h3 class="text-lg font-semibold">Pembelajaran Berbasis Proyek</h3>
-      <a href="{{ route('masukpbl') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
-        Masuk PBL +
-      </a>
-    </div>
-    <div class="grid grid-cols-4 gap-4">
-      <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
-        <p class="font-medium">D4 Terapan Teknologi 2022</p>
-        <p class="text-xs text-gray-500">PBL - UI/UX</p>
-      </div>
-      <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
-        <p class="font-medium">D4 Sarjana Terapan Teknologi</p>
-        <p class="text-xs text-gray-500">PBL - UI/UX</p>
-      </div>
-      <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
-        <p class="font-medium">D4 Sarjana Terapan Teknologi</p>
-        <p class="text-xs text-gray-500">PBL - UI/UX</p>
-      </div>
-      <div class="bg-white rounded shadow p-3">
-        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">D4</div>
-        <p class="font-medium">D4 Sarjana Terapan Teknologi</p>
-        <p class="text-xs text-gray-500">PBL - UI/UX</p>
-      </div>
-    </div>
+  <div class="flex justify-between items-center mb-2">
+    <h3 class="text-lg font-semibold">Pembelajaran Berbasis Proyek</h3>
+    <a href="{{ route('masukpbl') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+      Masuk PBL +
+    </a>
   </div>
+  <div class="grid grid-cols-4 gap-4">
+    @forelse ($kelas as $item)
+      <!-- Ganti <div> jadi <a> dengan route ke detail -->
+      <a href="{{ route('kelas.show', $item->id) }}"
+         class="block bg-white rounded shadow p-3 hover:shadow-lg transition">
+        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">
+          {{ strtoupper(substr($item->nama_kelas, 0, 2)) }}
+        </div>
+        <p class="font-medium">{{ $item->nama_kelas }}</p>
+        <p class="text-xs text-gray-500">Kategori: {{ $item->kategori }}</p>
+      </a>
+    @empty
+      <p class="col-span-4 text-center text-gray-500">Belum ada kelas tersedia.</p>
+    @endforelse
+  </div>
+</div>
+
+
 
   <!-- Tugas Diberikan -->
   <div id="assignedTasks" class="mb-6">
