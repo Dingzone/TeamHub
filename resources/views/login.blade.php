@@ -8,10 +8,11 @@
     <style>
         body {
             background: 
-                url("{{ asset('storage/images/bg1.png') }}") left center no-repeat,
-                url("{{ asset('storage/images/bg2.png') }}") right center no-repeat;
-            background-size: 50% 100%;
+                url("/storage/images/bg1.png") left bottom no-repeat,
+                url("/storage/images/bg2.png") right bottom no-repeat;
+            background-size: auto 75vh; /* 75% tinggi viewport */
             background-attachment: fixed;
+            background-color: #f3f4f6; /* Warna fallback */
         }
         .content-container {
             background: white;
@@ -19,9 +20,24 @@
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 10px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .google-btn:hover {
+            background: #f9fafb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="flex items-center justify-center min-h-screen">
     <div class="content-container w-full max-w-md">
         <h1 class="text-2xl font-bold text-center text-gray-700">CollabThink</h1>
         <p class="text-center text-gray-600">Masuk untuk melanjutkan</p>
@@ -70,10 +86,16 @@
             </span>
         </div>
 
+        <!-- Tombol Login Google -->
+        <button class="google-btn w-full">
+            <img src="/storage/images/googlelogo.png" alt="Google Logo" class="w-5 h-5">
+            <span>Masuk dengan Google</span>
+        </button>
+
         <hr class="my-6 border-gray-300">
 
         <div class="text-center">
-            <img src="{{ asset('storage/images/teamhublogo.png') }}" alt="TeamHub Logo" class="mx-auto w-14 mb-2">
+            <img src="/storage/images/teamhublogo.png" alt="TeamHub Logo" class="mx-auto w-14 mb-2">
             <p class="text-gray-600 font-semibold">TeamHub</p>
             <p class="text-gray-500 text-sm">Bersama, Terhubung, Berkembang</p>
         </div>

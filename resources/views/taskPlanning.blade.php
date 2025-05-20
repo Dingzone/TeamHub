@@ -27,16 +27,14 @@
         <main class="flex-1 p-6 overflow-y-auto">
             <div class="flex justify-between items-center mb-4">
                 <button onclick="toggleSidebar()" class="md:hidden bg-blue-500 text-white px-4 py-2 rounded">☰</button>
-                <h2 class="font-bold text-lg">Planning Detail</h2>
+                <h2 class="font-bold text-lg">Define Detail</h2>
                 <a href="proyekDetail.html" class="bg-gray-500 text-white px-4 py-2 rounded">Back</a>
             </div>
 
             <!-- Planning Overview -->
             <section class="mb-6 p-4 bg-white shadow rounded-lg">
-                <h3 class="font-semibold text-lg text-gray-600 mb-2">Planning Overview</h3>
-                <p><strong>Task Name:</strong> Planning</p>
+                <h3 class="font-semibold text-lg text-gray-600 mb-2">Define Overview</h3>
                 <p><strong>Duration:</strong> 5 days</p>
-                <p><strong>Assigned to:</strong> Exaudi</p>
                 <p><strong>Status:</strong> In Progress</p>
             </section>
 
@@ -66,25 +64,25 @@
                         <div class="flex flex-wrap gap-2 mt-1">
                             <select class="p-2 border rounded">
                                 <option value="">Pilih anggota</option>
-                                <option value="exaudi">Exaudi</option>
+                                <option value="exaudi">Fresky</option>
                                 <option value="john">John</option>
-                                <option value="sarah">Sarah</option>
+                                <option value="sarah">Exaudi</option>
                                 <option value="mike">Mike</option>
                                 <option value="lisa">Lisa</option>
                             </select>
                             <select class="p-2 border rounded">
                                 <option value="">Pilih anggota</option>
-                                <option value="exaudi">Exaudi</option>
+                                <option value="exaudi">Fresky</option>
                                 <option value="john">John</option>
-                                <option value="sarah">Sarah</option>
+                                <option value="sarah">Exaudi</option>
                                 <option value="mike">Mike</option>
                                 <option value="lisa">Lisa</option>
                             </select>
                             <select class="p-2 border rounded">
                                 <option value="">Pilih anggota</option>
-                                <option value="exaudi">Exaudi</option>
+                                <option value="exaudi">Fresky</option>
                                 <option value="john">John</option>
-                                <option value="sarah">Sarah</option>
+                                <option value="sarah">Exaudi</option>
                                 <option value="mike">Mike</option>
                                 <option value="lisa">Lisa</option>
                             </select>
@@ -188,17 +186,6 @@
                         </tbody>
                     </table>
                 </div>
-            </section>
-
-            <!-- Notes -->
-            <section class="mb-6 p-4 bg-white shadow rounded-lg">
-                <h3 class="font-semibold text-lg text-gray-600 mb-2">Notes</h3>
-                <textarea id="noteInput" class="w-full p-2 border rounded" rows="4" placeholder="Tambahkan catatan..."></textarea>
-                <button onclick="saveNote()" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Save Note</button>
-                <ul id="noteList" class="list-disc pl-5 text-gray-700 mt-2">
-                    <li class="mb-2">Pastikan semua requirement sudah dicatat dengan baik</li>
-                    <li class="mb-2">Koordinasi dengan tim desain untuk wireframe</li>
-                </ul>
             </section>
         </main>
     </div>

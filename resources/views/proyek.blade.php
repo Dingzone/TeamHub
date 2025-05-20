@@ -1,102 +1,198 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CollabThink Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("hidden");
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CollabThink Proyek</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .project-card-container {
+      position: relative;
+      cursor: pointer;
+    }
+    .project-card-container:hover {
+      transform: translateY(-2px);
+      transition: transform 0.2s ease;
+    }
+  </style>
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("hidden");
+    }
+    
+    function navigateToDetail(category) {
+      window.location.href = `/halamandetailproyek/${encodeURIComponent(category)}`;
+    }
+  </script>
 </head>
 <body class="bg-gray-100 font-sans">
-    <div class="flex h-screen">
-        <!-- Sidebar -->
-        <aside id="sidebar" class="w-64 bg-white shadow-md p-4 hidden md:block">
-            <h1 class="text-xl font-bold mb-6">CollabThink</h1>
-            <nav class="space-y-4">
-                <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
-                <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>               
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">🔔 Notifikasi</a>
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
-                <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
-            </nav>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="flex-1 p-6">
-            <div class="flex justify-between items-center mb-4">
-                <button onclick="toggleSidebar()" class="md:hidden bg-blue-500 text-white px-4 py-2 rounded">☰</button>
-                <input type="text" placeholder="Search" class="w-1/2 p-2 border rounded">
-                <a href="{{ route('addProyek') }}" class="bg-blue-500 text-white px-4 py-2 rounded">+ Add Proyek</a>                
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-white shadow-md p-4 hidden md:block">
+        <h1 class="text-xl font-bold mb-6">CollabThink</h1>
+        <nav class="space-y-4">
+            <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
+            <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
+            <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
+            <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
+            <a href="{{ route('rekap') }}" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
+            <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
+            <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <header class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Proyek</h2>
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-600">Moni Roy</span>
+          <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
+        </div>
+      </header>
+
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded shadow text-center">
+          <p class="font-semibold text-gray-600">Total Proyek</p>
+          <p class="text-3xl font-bold mt-2">40</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow text-center">
+          <p class="font-semibold text-gray-600">Sedang Berlangsung</p>
+          <p class="text-3xl font-bold mt-2">10</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow text-center">
+          <p class="font-semibold text-gray-600">Selesai</p>
+          <p class="text-3xl font-bold mt-2">9</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow text-center">
+          <p class="font-semibold text-gray-600">Tertunda</p>
+          <p class="text-3xl font-bold mt-2">2</p>
+        </div>
+      </div>
+
+      <!-- Project Based Learning -->
+      <div class="mb-6">
+        <div class="flex justify-between items-center mb-3">
+          <h3 class="text-xs font-semibold text-gray-900 uppercase">Project Based Learning</h3>
+          <a href="{{ route('masukpbl') }}" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-1 rounded">
+            Masuk PBL +
+          </a>
+        </div>
+        <div class="grid grid-cols-4 gap-4">
+          <!-- UI/UX Project Card -->
+          <div class="project-card-container" onclick="navigateToDetail('UI/UX')">
+            <div class="bg-white rounded-lg shadow w-full p-2">
+              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
+              <div class="flex items-center space-x-1">
+                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="far fa-star"></i>
+                </button>
+                <p class="text-xs text-gray-700 leading-normal">
+                  D4 Terapan Teknologi 2022
+                  <br/>
+                  PBL - Mobile Development
+                </p>
+              </div>
+              <div class="flex justify-end text-gray-400 text-xs mt-1">
+                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
             </div>
-            
-            <section class="mb-6">
-                <h2 class="font-bold text-lg mb-2">Total Proyek</h2>               
-                <div class="flex space-x-4">
-                    <!-- TO DO Section -->
-                    <div class="w-1/3 p-6 bg-white shadow rounded text-center">
-                        <h3 class="font-semibold text-gray-600">Total Proyek To Do</h3>                        
-                        <p class="text-sm text-gray-400">20 - 30 Februari 2025</p>
-                        <p class="text-2xl font-bold">10</p>
-                        <p class="text-green-500 font-semibold">⬆ 33.87%</p>
-                    </div>
-                    
-                    <!-- In Progress Section -->
-                    <div class="w-1/3 p-6 bg-white shadow rounded text-center">
-                        <h3 class="font-semibold text-gray-600">Total Proyek In Progress</h3>                       
-                        <p class="text-sm text-gray-400">01 - 20 Februai 2025</p>
-                        <p class="text-2xl font-bold">5</p>
-                        <p class="text-red-500 font-semibold">⬇ 13.87% </p>
-                    </div>
-                    
-                    <!-- Complete Section -->
-                    <div class="w-1/3 p-6 bg-white shadow rounded text-center">
-                        <h3 class="font-semibold text-gray-600">Total Proyek Completed</h3>                       
-                        <p class="text-sm text-gray-400">10 - 19 Februari 2025</p>
-                        <p class="text-2xl font-bold">15</p>
-                        <p class="text-green-500 font-semibold">⬆ 20.45% </p>
-                    </div>
-                </div>
-            </section>
+          </div>
 
-            <!-- Created Projects Section -->
-            <section>
-                <h2 class="font-bold text-lg mb-2">Created Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- Project Card -->
-                    <div class="bg-white shadow-md p-4 rounded-lg hover:shadow-lg transition-all">
-                        <a href="{{ route('proyekDetail') }}" class="block">                        
-                            <h3 class="font-semibold text-xl text-gray-700">Project 1</h3>
-                            <p class="text-sm text-gray-500">Duration: 10 days</p>
-                            <p class="text-sm text-gray-500">Team: John, Jane</p>
-                        </a>
-                    </div>
+          <!-- Mobile Development Project Card -->
+          <div class="project-card-container" onclick="navigateToDetail('Mobile Development')">
+            <div class="bg-white rounded-lg shadow w-full p-2">
+              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
+              <div class="flex items-center space-x-1">
+                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="far fa-star"></i>
+                </button>
+                <p class="text-xs text-gray-700 leading-normal">
+                  D4 Sarjana Terapan Teknologi
+                  <br/>
+                  PBL - UI/UX
+                </p>
+              </div>
+              <div class="flex justify-end text-gray-400 text-xs mt-1">
+                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+          </div>
 
-                    <!-- Project Card -->
-                    <div class="bg-white shadow-md p-4 rounded-lg hover:shadow-lg transition-all">
-                        <a href="{{ route('proyekDetail') }}" class="block">                       
-                            <h3 class="font-semibold text-xl text-gray-700">Project 2</h3>
-                            <p class="text-sm text-gray-500">Duration: 15 days</p>
-                            <p class="text-sm text-gray-500">Team: Sarah, Mike</p>
-                        </a>
-                    </div>
+          <!-- Front End Project Card -->
+          <div class="project-card-container" onclick="navigateToDetail('Front End')">
+            <div class="bg-white rounded-lg shadow w-full p-2">
+              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
+              <div class="flex items-center space-x-1">
+                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="far fa-star"></i>
+                </button>
+                <p class="text-xs text-gray-700 leading-normal">
+                  D4 Sarjana Terapan Teknologi
+                  <br/>
+                  PBL - Front End
+                </p>
+              </div>
+              <div class="flex justify-end text-gray-400 text-xs mt-1">
+                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+          </div>
 
-                    <!-- Project Card -->
-                    <div class="bg-white shadow-md p-4 rounded-lg hover:shadow-lg transition-all">
-                        <a href="#" class="block">
-                            <h3 class="font-semibold text-xl text-gray-700">Project 3</h3>
-                            <p class="text-sm text-gray-500">Duration: 20 days</p>
-                            <p class="text-sm text-gray-500">Team: Mark, David</p>
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
+          <!-- Back End Project Card -->
+          <div class="project-card-container" onclick="navigateToDetail('Back End')">
+            <div class="bg-white rounded-lg shadow w-full p-2">
+              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
+              <div class="flex items-center space-x-1">
+                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="far fa-star"></i>
+                </button>
+                <p class="text-xs text-gray-700 leading-normal">
+                  D4 Sarjana Terapan Teknologi
+                  <br/>
+                  PBL - Back End
+                </p>
+              </div>
+              <div class="flex justify-end text-gray-400 text-xs mt-1">
+                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize star toggle functionality
+      document.querySelectorAll('.star-toggle').forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const icon = this.querySelector('i');
+          icon.classList.toggle('far');
+          icon.classList.toggle('fas');
+        });
+      });
+
+      // Initialize menu buttons
+      document.querySelectorAll('.menu-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          // Add your menu toggle logic here
+        });
+      });
+    });
+  </script>
 </body>
 </html>

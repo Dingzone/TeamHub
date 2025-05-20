@@ -24,7 +24,7 @@
         <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
         <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
         <a href="{{ route('rekap') }}" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
-        <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas</a>
+        <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
         <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi</a>
       </nav>
     </aside>
@@ -41,7 +41,6 @@
           
     <div class="flex items-center space-x-4">
       <span class="text-gray-600">Moni Roy</span>
-      <span class="text-sm text-gray-400">Admin</span>
       <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
     </div>
         </div>

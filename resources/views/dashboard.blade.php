@@ -34,7 +34,6 @@
     <h2 class="text-2xl font-bold">Dashboard</h2>
     <div class="flex items-center space-x-4">
       <span class="text-gray-600">Moni Roy</span>
-      <span class="text-sm text-gray-400">Admin</span>
       <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
     </div>
   </header>

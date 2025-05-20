@@ -33,20 +33,15 @@ Route::get('/addProyek', function () {
     return view('addProyek');
 })->name('addProyek');
 
-// Route untuk halaman detail proyek
-Route::get('/proyekDetail', function () {
-    return view('proyekDetail');
+// Route untuk halaman detail proyek dengan parameter kategori
+Route::get('/proyekDetail/{kategori}', function ($kategori) {
+    return view('proyekDetail', ['kategori' => urldecode($kategori)]);
 })->name('proyekDetail');
 
 // Route untuk halaman forum diskusi
 Route::get('/forum', function () {
     return view('forum');
 })->name('forum');
-
-// Route untuk halaman tambah task
-Route::get('/addTask', function () {
-    return view('addTask');
-})->name('addTask');
 
 // Route untuk halaman daftar tugas (datugas)
 Route::get('/datugas', function () {
@@ -59,9 +54,9 @@ Route::get('/datugas2', function () {
 })->name('datugas2');
 
 // Route untuk setiap fase
-Route::get('/taskplanning', function () {
-    return view('taskplanning');
-})->name('taskplanning');
+Route::get('/task-planning/{taskName}', function ($taskName) {
+    return view('taskPlanning', ['taskName' => $taskName]);
+})->name('taskPlanning');
 
 Route::get('/taskanalysis', function () {
     return view('taskanalysis');
@@ -83,7 +78,7 @@ Route::get('/taskmaintenance', function () {
     return view('taskmaintenance');
 })->name('taskmaintenance');
 
-// Route untuk halaman rekap penilaian (Pilih Dosen atau Mahasiswa)
+// Route untuk halaman rekap penilaian
 Route::get('/rekap', function () {
     return view('rekap');
 })->name('rekap');
@@ -93,15 +88,16 @@ Route::get('/penilaian', function () {
     return view('penilaian');
 })->name('penilaian');
 
-// Route untuk halaman penilaian dosen
 Route::get('/penilaian2', function () {
     return view('penilaian2');
 })->name('penilaian2');
 
+// Route untuk masuk PBL
 Route::get('/masukpbl', function () {
     return view('masukpbl');
 })->name('masukpbl');
 
+// Route untuk masuk PBL dengan kategori spesifik
 Route::get('/masuk2pbl/{kategori}', function ($kategori) {
     return view('masuk2pbl', ['kategori' => urldecode($kategori)]);
 })->name('masuk2pbl');
@@ -126,7 +122,33 @@ Route::get('/kuncikelas', function (\Illuminate\Http\Request $request) {
     return view('kuncikelas', compact('kelas'));
 })->name('kuncikelas');
 
-// Route untuk logout (Sementara hanya redirect ke login)
+// Route untuk logout
 Route::get('/logout', function () {
     return redirect()->route('login');
 })->name('logout');
+
+// Route untuk halaman detail proyek berdasarkan kategori
+Route::get('/halamandetailproyek/{kategori}', function ($kategori) {
+    $validCategories = ['UI/UX', 'Mobile Development', 'Front End', 'Back End'];
+    
+    if (!in_array(urldecode($kategori), $validCategories)) {
+        abort(404);
+    }
+    
+    return view('halamandetailproyek', [
+        'kategori' => urldecode($kategori),
+        'title' => 'PBL - ' . urldecode($kategori)
+    ]);
+})->name('halamandetailproyek');
+
+// Route untuk halaman detail task pada proyek tertentu
+// Menerima projectName sebagai parameter untuk menampilkan detail proyek yang spesifik
+Route::get('/addTask/{projectName?}', function ($projectName = null) {
+    return view('addTask', [
+        'projectName' => $projectName ? urldecode($projectName) : null
+    ]);
+})->name('addTask');
+
+Route::get('/pengumuman', function () {
+    return view('pengumuman');
+})->name('pengumuman');
