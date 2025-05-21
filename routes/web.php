@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\DashboardDosenController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\ProyekController;
 
 // Halaman login
 Route::get('/', function () {
@@ -49,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/kelas/{id}', [KelasController::class, 'show'])->name('kelas.show');
 
     // Tambahan routes
-    Route::view('/proyek', 'proyek')->name('proyek');
+    Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');
     Route::view('/addProyek', 'addProyek')->name('addProyek');
     Route::view('/proyekDetail', 'proyekDetail')->name('proyekDetail');
     Route::view('/forum', 'forum')->name('forum');

@@ -33,8 +33,8 @@
   <header class="flex justify-between items-center mb-6">
     <h2 class="text-2xl font-bold">Dashboard</h2>
     <div class="flex items-center space-x-4">
-      <span class="text-gray-600">Moni Roy</span>
-      <span class="text-sm text-gray-400">Admin</span>
+      <span class="text-gray-600">Roy</span>
+      <span class="text-sm text-gray-400">mahasiswa</span>
       <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
     </div>
   </header>
@@ -62,12 +62,6 @@
 
   <!-- Proyek Berbasis -->
   <div id="projectBasedLearning" class="mb-6">
-  <div class="flex justify-between items-center mb-2">
-    <h3 class="text-lg font-semibold">Pembelajaran Berbasis Proyek</h3>
-    <a href="{{ route('masukpbl') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
-      Masuk PBL +
-    </a>
-  </div>
   <div class="grid grid-cols-4 gap-4">
     @forelse ($kelas as $item)
       <!-- Ganti <div> jadi <a> dengan route ke detail -->
