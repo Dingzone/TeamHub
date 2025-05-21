@@ -64,25 +64,25 @@
                         <div class="flex flex-wrap gap-2 mt-1">
                             <select class="p-2 border rounded">
                                 <option value="">Pilih anggota</option>
-                                <option value="exaudi">Fresky</option>
+                                <option value="Fresky">Fresky</option>
                                 <option value="john">John</option>
-                                <option value="sarah">Exaudi</option>
+                                <option value="Exaudi">Exaudi</option>
                                 <option value="mike">Mike</option>
                                 <option value="lisa">Lisa</option>
                             </select>
                             <select class="p-2 border rounded">
                                 <option value="">Pilih anggota</option>
-                                <option value="exaudi">Fresky</option>
+                                <option value="Fresky">Fresky</option>
                                 <option value="john">John</option>
-                                <option value="sarah">Exaudi</option>
+                                <option value="Exaudi">Exaudi</option>
                                 <option value="mike">Mike</option>
                                 <option value="lisa">Lisa</option>
                             </select>
                             <select class="p-2 border rounded">
                                 <option value="">Pilih anggota</option>
-                                <option value="exaudi">Fresky</option>
+                                <option value="Fresky">Fresky</option>
                                 <option value="john">John</option>
-                                <option value="sarah">Exaudi</option>
+                                <option value="Exaudi">Exaudi</option>
                                 <option value="mike">Mike</option>
                                 <option value="lisa">Lisa</option>
                             </select>
@@ -124,7 +124,7 @@
                                 <td class="border border-gray-300 px-4 py-2">11/06/2025</td>
                                 <td class="border border-gray-300 px-4 py-2">
                                     <div class="flex flex-col">
-                                        <span>Exaudi</span>
+                                        <span>Fresky</span>
                                         <span>John</span>
                                     </div>
                                 </td>
@@ -157,7 +157,7 @@
                                 <td class="border border-gray-300 px-4 py-2">11/10/2025</td>
                                 <td class="border border-gray-300 px-4 py-2">
                                     <div class="flex flex-col">
-                                        <span>Sarah</span>
+                                        <span>Exaudi</span>
                                         <span>Lisa</span>
                                     </div>
                                 </td>
