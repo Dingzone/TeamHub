@@ -47,11 +47,13 @@
         <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
-        <p class="font-semibold text-gray-600">Jumlah Mahasiswa</p>
+        <p class="font-semibold text-gray-600">In Progress</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
         <p class="text-3xl font-bold mt-2">–</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
         <p class="font-semibold text-gray-600">Jumlah Proyek</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
         <p class="text-3xl font-bold mt-2">–</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
