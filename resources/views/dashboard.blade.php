@@ -34,6 +34,7 @@
     <h2 class="text-2xl font-bold">Dashboard</h2>
     <div class="flex items-center space-x-4">
       <span class="text-gray-600">Moni Roy</span>
+      <span class="text-sm text-gray-400">mahasiswa</span>
       <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
     </div>
   </header>
@@ -46,11 +47,13 @@
         <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
-        <p class="font-semibold text-gray-600">Jumlah Mahasiswa</p>
+        <p class="font-semibold text-gray-600">In Progress</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
         <p class="text-3xl font-bold mt-2">–</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
         <p class="font-semibold text-gray-600">Jumlah Proyek</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
         <p class="text-3xl font-bold mt-2">–</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
@@ -61,12 +64,6 @@
 
   <!-- Proyek Berbasis -->
   <div id="projectBasedLearning" class="mb-6">
-  <div class="flex justify-between items-center mb-2">
-    <h3 class="text-lg font-semibold">Pembelajaran Berbasis Proyek</h3>
-    <a href="{{ route('masukpbl') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
-      Masuk PBL +
-    </a>
-  </div>
   <div class="grid grid-cols-4 gap-4">
     @forelse ($kelas as $item)
       <!-- Ganti <div> jadi <a> dengan route ke detail -->

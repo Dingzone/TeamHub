@@ -20,10 +20,6 @@
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("hidden");
     }
-    
-    function navigateToDetail(category) {
-      window.location.href = `/halamandetailproyek/${encodeURIComponent(category)}`;
-    }
   </script>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -45,32 +41,35 @@
     <!-- Main Content -->
     <main class="flex-1 p-6 overflow-y-auto">
       <header class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold">Proyek</h2>
+        <h2 class="text-2xl font-bold">Proyek Based Learning</h2>
         <div class="flex items-center space-x-4">
           <span class="text-gray-600">Moni Roy</span>
+          <span class="text-sm text-gray-400">mahasiswa</span>
           <img src="https://i.pravatar.cc/40" alt="Profile" class="rounded-full w-10 h-10" />
         </div>
       </header>
 
       <!-- Summary Cards -->
-      <div class="grid grid-cols-4 gap-4 mb-6">
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Total Proyek</p>
-          <p class="text-3xl font-bold mt-2">40</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Sedang Berlangsung</p>
-          <p class="text-3xl font-bold mt-2">10</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Selesai</p>
-          <p class="text-3xl font-bold mt-2">9</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow text-center">
-          <p class="font-semibold text-gray-600">Tertunda</p>
-          <p class="text-3xl font-bold mt-2">2</p>
-        </div>
+ <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">Jumlah Kelas</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
       </div>
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">In Progress</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
+        <p class="text-3xl font-bold mt-2">–</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">Jumlah Proyek</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
+        <p class="text-3xl font-bold mt-2">–</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow text-center">
+        <p class="font-semibold text-gray-600">Jumlah Tugas</p>
+        <p class="text-3xl font-bold mt-2">–</p>
+      </div>
+    </div>
 
       <!-- Project Based Learning -->
       <div class="mb-6">
@@ -80,94 +79,33 @@
             Masuk PBL +
           </a>
         </div>
-        <div class="grid grid-cols-4 gap-4">
-          <!-- UI/UX Project Card -->
-          <div class="project-card-container" onclick="navigateToDetail('UI/UX')">
-            <div class="bg-white rounded-lg shadow w-full p-2">
-              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
-              <div class="flex items-center space-x-1">
-                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="far fa-star"></i>
-                </button>
-                <p class="text-xs text-gray-700 leading-normal">
-                  D4 Terapan Teknologi 2022
-                  <br/>
-                  PBL - Mobile Development
-                </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          @forelse ($kelas as $item)
+            <a href="{{ route('halamandetailproyek', ['kategori' => urlencode($item->kategori)]) }}" class="block project-card-container">
+              <div class="bg-white rounded-lg shadow w-full p-2">
+                <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">
+                  {{ strtoupper(substr($item->nama_kelas, 0, 2)) }}
+                </div>
+                <div class="flex items-center space-x-1">
+                  <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation(); event.preventDefault();">
+                    <i class="far fa-star"></i>
+                  </button>
+                  <p class="text-xs text-gray-700 leading-normal">
+                    {{ $item->nama_kelas }}
+                    <br/>
+                    Kategori: {{ $item->kategori }}
+                  </p>
+                </div>
+                <div class="flex justify-end text-gray-400 text-xs mt-1">
+                  <button class="menu-button focus:outline-none" onclick="event.stopPropagation(); event.preventDefault();">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                </div>
               </div>
-              <div class="flex justify-end text-gray-400 text-xs mt-1">
-                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="fas fa-ellipsis-h"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mobile Development Project Card -->
-          <div class="project-card-container" onclick="navigateToDetail('Mobile Development')">
-            <div class="bg-white rounded-lg shadow w-full p-2">
-              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
-              <div class="flex items-center space-x-1">
-                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="far fa-star"></i>
-                </button>
-                <p class="text-xs text-gray-700 leading-normal">
-                  D4 Sarjana Terapan Teknologi
-                  <br/>
-                  PBL - UI/UX
-                </p>
-              </div>
-              <div class="flex justify-end text-gray-400 text-xs mt-1">
-                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="fas fa-ellipsis-h"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Front End Project Card -->
-          <div class="project-card-container" onclick="navigateToDetail('Front End')">
-            <div class="bg-white rounded-lg shadow w-full p-2">
-              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
-              <div class="flex items-center space-x-1">
-                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="far fa-star"></i>
-                </button>
-                <p class="text-xs text-gray-700 leading-normal">
-                  D4 Sarjana Terapan Teknologi
-                  <br/>
-                  PBL - Front End
-                </p>
-              </div>
-              <div class="flex justify-end text-gray-400 text-xs mt-1">
-                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="fas fa-ellipsis-h"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Back End Project Card -->
-          <div class="project-card-container" onclick="navigateToDetail('Back End')">
-            <div class="bg-white rounded-lg shadow w-full p-2">
-              <div class="bg-blue-600 rounded h-20 w-full mb-2 flex items-center justify-center text-white font-bold">D4</div>
-              <div class="flex items-center space-x-1">
-                <button class="star-toggle text-yellow-400 focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="far fa-star"></i>
-                </button>
-                <p class="text-xs text-gray-700 leading-normal">
-                  D4 Sarjana Terapan Teknologi
-                  <br/>
-                  PBL - Back End
-                </p>
-              </div>
-              <div class="flex justify-end text-gray-400 text-xs mt-1">
-                <button class="menu-button focus:outline-none" onclick="event.stopPropagation()">
-                  <i class="fas fa-ellipsis-h"></i>
-                </button>
-              </div>
-            </div>
-          </div>
+            </a>
+          @empty
+            <p class="col-span-4 text-center text-gray-500">Belum ada kelas tersedia.</p>
+          @endforelse
         </div>
       </div>
     </main>
@@ -179,6 +117,7 @@
       document.querySelectorAll('.star-toggle').forEach(button => {
         button.addEventListener('click', function(e) {
           e.stopPropagation();
+          e.preventDefault();
           const icon = this.querySelector('i');
           icon.classList.toggle('far');
           icon.classList.toggle('fas');
@@ -189,6 +128,7 @@
       document.querySelectorAll('.menu-button').forEach(button => {
         button.addEventListener('click', function(e) {
           e.stopPropagation();
+          e.preventDefault();
           // Add your menu toggle logic here
         });
       });

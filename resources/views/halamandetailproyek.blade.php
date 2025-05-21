@@ -192,7 +192,7 @@
   <script>
     // Ambil kategori dari URL
     const urlParams = new URLSearchParams(window.location.search);
-    const kategori = urlParams.get('kategori') || 'UI/UX';
+    const kategori = urlParams.get('kategori') || 'Mobile Development';
     
     // Update title jika diperlukan
     document.title = `PBL - ${kategori} | CollabThink`;

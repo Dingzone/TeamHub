@@ -25,7 +25,7 @@
     <main class="flex-1 p-6 overflow-y-auto">
         
 
-        <h2 class="text-2xl font-bold mb-4">📢 Pengumuman Proyek PBL - UI/UX</h2>
+        <h2 class="text-2xl font-bold mb-4">📢 Pengumuman Proyek PBL - Mobile Development</h2>
 
         <div class="bg-white p-6 rounded shadow">
             <p class="text-sm text-gray-500 mb-4">🕒 Diumumkan pada: 11-01-2025 08.00</p>
@@ -41,7 +41,7 @@
             <p class="text-sm text-gray-700">Terima kasih atas perhatian dan kerja samanya.</p>
             <div class="mt-4">
                 <strong>Nama File:</strong><br/>
-                <span class="italic text-gray-600 text-sm">Informasi_nama_anggota_kelompok_mata_kuliah_ui/ux_angkatan_2022.xlsx</span>
+                <span class="italic text-gray-600 text-sm">Informasi_nama_anggota_kelompok_mata_kuliah_mobile_development_angkatan_2022.xlsx</span>
             </div>
         </div>
     </main>
