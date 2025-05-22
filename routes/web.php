@@ -43,9 +43,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [MahasiswaController::class, 'dashboard'])->name('dashboard');
 
     // Dashboard Dosen
-    Route::get('/dashboard-dosen', [DashboardDosenController::class, 'index'])->name('dashboard.dosen');
-    Route::get('/dashboard-dosen/create', [DashboardDosenController::class, 'create'])->name('dashboard.dosen.create');
-    Route::post('/dashboard-dosen/store', [DashboardDosenController::class, 'store'])->name('kelas.store');
+    // Dashboard Dosen
+    Route::get('/dashboard-dosen', [DashboardDosenController::class, 'index'])
+         ->name('dashboard.dosen');
+    Route::get('/dashboard-dosen/create', [DashboardDosenController::class, 'create'])
+         ->name('dashboard.dosen.create');
+    Route::post('/dashboard-dosen/store', [DashboardDosenController::class, 'store'])
+         ->name('kelas.store');
+    // Route DELETE
+    Route::delete('/dashboard-dosen/{id}', [DashboardDosenController::class, 'destroy'])
+         ->name('dashboard.dosen.destroy');
 
     // Kelas
     Route::get('/kelas/{id}', [KelasController::class, 'show'])->name('kelas.show');

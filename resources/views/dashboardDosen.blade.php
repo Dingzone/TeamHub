@@ -22,56 +22,70 @@
   <main class="flex-1 p-6">
     <h1 class="text-3xl font-bold mb-6">Dashboard Dosen</h1>
 
-    @if (session('success'))
-    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-      {{ session('success') }}
-    </div>
-    @endif
+    @if(session('success'))
+  <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg mb-6">
+    {{ session('success') }}
+  </div>
+@endif
 
-    <!-- Summary Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-      <div class="bg-white p-4 rounded shadow text-center">
-        <p class="font-semibold text-gray-600">Jumlah Kelas</p>
-        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow text-center">
-        <p class="font-semibold text-gray-600">Jumlah Mahasiswa</p>
-        <p class="text-3xl font-bold mt-2">1</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow text-center">
-        <p class="font-semibold text-gray-600">Jumlah Proyek</p>
-        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
-        <p class="text-3xl font-bold mt-2"></p>
-      </div>
-      <div class="bg-white p-4 rounded shadow text-center">
-        <p class="font-semibold text-gray-600">Jumlah Tugas</p>
-        <p class="text-3xl font-bold mt-2">–</p>
-      </div>
-    </div>
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+  <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+    <p class="font-semibold text-gray-600">Jumlah Kelas</p>
+    <p class="text-4xl font-extrabold mt-4">{{ $jumlahKelas }}</p>
+  </div>
+ 
+  <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+    <p class="font-semibold text-gray-600">Jumlah Mahasiswa</p>
+    <p class="text-4xl font-extrabold mt-4">1</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+    <p class="font-semibold text-gray-600">Jumlah Proyek</p>
+    <p class="text-4xl font-extrabold mt-4">{{ $jumlahKelas }}</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+    <p class="font-semibold text-gray-600">InProgress</p>
+    <p class="text-4xl font-extrabold mt-4">{{ $jumlahKelas }}</p>
+  </div>
+</div>
 
-    <!-- Project Based Learning Section -->
-    <div class="flex justify-between items-center mb-3">
-      <h2 class="text-xl font-semibold">Project Based Learning</h2>
-      <a href="{{ route('dashboard.dosen.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-        + Tambah Kelas
-      </a>
-    </div>
+<!-- Section Tambah Kelas -->
+<div class="flex justify-between items-center mb-6">
+  <h2 class="text-2xl font-semibold">Project Based Learning</h2>
+  <a href="{{ route('dashboard.dosen.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-base">
+    + Tambah Kelas
+  </a>
+</div>
 
-    <!-- Kelas List -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-      @forelse ($kelasList as $kelas)
-      <a href="{{ route('kelas.show', $kelas->id) }}" class="block bg-white rounded shadow p-3 hover:shadow-lg transition">
-        <div class="h-24 bg-blue-600 rounded mb-2 flex items-center justify-center text-white font-bold">
-          {{ strtoupper(substr($kelas->kategori ?? 'PBL', 0, 5)) }}
-        </div>
-        <p class="font-medium">{{ $kelas->nama_kelas }}</p>
-        <p class="text-xs text-gray-500">PBL - {{ $kelas->kategori ?? 'Tanpa Kategori' }}</p>
-      </a>
-      @empty
-      <p>Tidak ada kelas tersedia.</p>
-      @endforelse
+<!-- Daftar Kelas -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  @forelse($kelasList as $kelas)
+  <div class="relative bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-200">
+
+    <!-- Tombol Hapus -->
+    <form action="{{ route('dashboard.dosen.destroy', $kelas->id) }}" method="POST" class="absolute top-3 right-3">
+      @csrf
+      @method('DELETE')
+      <button type="submit" onclick="return confirm('Yakin menghapus kelas {{ addslashes($kelas->nama_kelas) }}?')" class="text-red-500 hover:text-red-700 text-xl">
+        🗑
+      </button>
+    </form>
+
+    <!-- Konten Kartu -->
+    <a href="{{ route('kelas.show', $kelas->id) }}" class="block text-center">
+      <div class="h-32 w-full bg-blue-600 rounded-xl mb-4 flex items-center justify-center text-white text-2xl font-bold">
+        {{ strtoupper(substr($kelas->kategori ?? 'PBL', 0, 5)) }}
+      </div>
+      <p class="font-semibold text-lg text-gray-800">{{ $kelas->nama_kelas }}</p>
+      <p class="text-sm text-gray-500 mt-1">Kategori: {{ $kelas->kategori ?? 'Tanpa Kategori' }}</p>
+    </a>
+
+  </div>
+  @empty
+    <p class="text-gray-500">Tidak ada kelas tersedia.</p>
+  @endforelse
+</div>
     </div>
   </main>
-
 </body>
 </html>

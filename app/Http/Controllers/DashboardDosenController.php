@@ -10,8 +10,7 @@ class DashboardDosenController extends Controller
     public function index()
     {
         $jumlahKelas = KelasPBL::count();
-        $kelasList = KelasPBL::all();
-
+        $kelasList   = KelasPBL::all();
         return view('dashboardDosen', compact('jumlahKelas', 'kelasList'));
     }
 
@@ -24,11 +23,18 @@ class DashboardDosenController extends Controller
     {
         $request->validate([
             'nama_kelas' => 'required|string|max:255',
-            'kategori' => 'nullable|string|max:255',
+            'kategori'   => 'nullable|string|max:255',
         ]);
-
         KelasPBL::create($request->only('nama_kelas', 'kategori'));
+        return redirect()->route('dashboard.dosen')
+                         ->with('success', 'Kelas berhasil ditambahkan.');
+    }
 
-        return redirect()->route('dashboard.dosen')->with('success', 'Kelas berhasil ditambahkan.');
+    public function destroy($id)
+    {
+        $kelas = KelasPBL::findOrFail($id);
+        $kelas->delete();
+        return redirect()->route('dashboard.dosen')
+                         ->with('success', 'Kelas berhasil dihapus.');
     }
 }
