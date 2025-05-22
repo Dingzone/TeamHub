@@ -12,12 +12,9 @@
     <h1 class="text-xl font-bold mb-6">CollabThink</h1>
     <nav class="space-y-4">
       <a href="#" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
-      <a href="#" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
-      <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
-      <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
-      <a href="#" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
+      <a href="{{ route('penilaian') }}" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
       <a href="#" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
-      <a href="#" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
+      <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
     </nav>
   </aside>
 
@@ -39,11 +36,12 @@
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
         <p class="font-semibold text-gray-600">Jumlah Mahasiswa</p>
-        <p class="text-3xl font-bold mt-2">–</p>
+        <p class="text-3xl font-bold mt-2">1</p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
         <p class="font-semibold text-gray-600">Jumlah Proyek</p>
-        <p class="text-3xl font-bold mt-2">–</p>
+        <p class="text-3xl font-bold mt-2">{{ $jumlahKelas }}</p>
+        <p class="text-3xl font-bold mt-2"></p>
       </div>
       <div class="bg-white p-4 rounded shadow text-center">
         <p class="font-semibold text-gray-600">Jumlah Tugas</p>
