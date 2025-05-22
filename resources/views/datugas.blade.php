@@ -24,7 +24,7 @@
         <aside id="sidebar" class="w-64 bg-white shadow-md p-4 hidden md:block">
             <h1 class="text-xl font-bold mb-6">CollabThink</h1>
             <nav class="space-y-4">
-            <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
+                <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
                 <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
                 <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
                 <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
@@ -36,12 +36,12 @@
 
         <!-- Main Content -->
         <main class="flex-1 p-6">
-            <h1 class="text-2xl font-bold mb-4">Daftar Proyek</h1>
+            <h1 class="text-2xl font-bold mb-4">Daftar Tugas</h1>
 
             <!-- Form Input Proyek -->
             <div class="bg-white p-4 shadow-md rounded mb-4">
-                <h3 class="font-bold mb-2">Tambah Proyek</h3>
-                <input type="text" id="projectName" placeholder="Nama Proyek" class="w-full p-2 border rounded">
+                <h3 class="font-bold mb-2">Tambah Tugas</h3>
+                <input type="text" id="projectName" placeholder="Nama Tugas" class="w-full p-2 border rounded">
                 <button onclick="addProject()" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Tambah</button>
             </div>
 
@@ -56,11 +56,14 @@
         function renderProjects() {
             const list = document.getElementById("projectList");
             list.innerHTML = "";
-            projects.forEach(p => {
+            projects.forEach((p, index) => {
                 list.innerHTML += `
-                    <div class="p-4 bg-white shadow-md rounded flex justify-between">
+                    <div class="p-4 bg-white shadow-md rounded flex justify-between items-center">
                         <span class="font-semibold">${p.name}</span>
-                        <a href="{{ route('datugas2') }}?projectId=${p.id}" class="text-blue-500">Lihat Gantt Chart</a>
+                        <div class="flex gap-4">
+                            <a href="{{ route('datugas2') }}?projectId=${p.id}" class="text-blue-500 hover:underline">Lihat Gantt Chart</a>
+                            <button onclick="deleteProject(${index})" class="text-red-500 hover:underline">Hapus</button>
+                        </div>
                     </div>
                 `;
             });
@@ -69,11 +72,19 @@
         function addProject() {
             let name = document.getElementById("projectName").value;
             if (name) {
-                let newProject = { id: projects.length + 1, name, tasks: [] };
+                let newProject = { id: Date.now(), name, tasks: [] };
                 projects.push(newProject);
                 localStorage.setItem("projects", JSON.stringify(projects));
                 renderProjects();
                 document.getElementById("projectName").value = "";
+            }
+        }
+
+        function deleteProject(index) {
+            if (confirm("Yakin ingin menghapus tugas ini?")) {
+                projects.splice(index, 1);
+                localStorage.setItem("projects", JSON.stringify(projects));
+                renderProjects();
             }
         }
 

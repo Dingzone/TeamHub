@@ -17,6 +17,13 @@
             document.getElementById('mahasiswaLoginForm').classList.remove('hidden');
             document.getElementById('dosenLoginForm').classList.add('hidden');
         }
+        function showDetailNilai(proyek) {
+            document.getElementById('detailNilaiPopup').classList.remove('hidden');
+            document.getElementById('popupTitle').innerText = 'Nilai Proyek ' + proyek + ' - Manajemen Proyek';
+        }
+        function closePopup() {
+            document.getElementById('detailNilaiPopup').classList.add('hidden');
+        }
     </script>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -36,45 +43,103 @@
         </aside>
         
         <!-- Main Content -->
-        <main class="flex-1 flex flex-col justify-center items-center p-6">
-            <h1 class="text-2xl font-bold mb-6">Pilih Peran Anda</h1>
+        <main class="flex-1 p-6 overflow-auto">
+            <h1 class="text-2xl font-bold mb-6">Rekap Nilai</h1>
             
-            <!-- Pilihan peran -->
-            <div class="flex space-x-4 mb-6">
-                <button onclick="showDosenLogin()" class="bg-blue-500 text-white px-6 py-3 rounded">Masuk sebagai Dosen</button>
-                <button onclick="showMahasiswaLogin()" class="bg-green-500 text-white px-6 py-3 rounded">Masuk sebagai Mahasiswa</button>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-lg font-bold mb-4">Daftar Proyek</h2>
+                
+                <div class="space-y-4">
+                    <!-- Proyek 1 -->
+                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
+                        <div class="text-sm">Proyek 1 - Manajemen Proyek</div>
+                        <div class="flex space-x-2">
+                            <button onclick="showDetailNilai(1)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
+                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyek 2 -->
+                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
+                        <div class="text-sm">Proyek 2 - Aplikasi Distribusi Pasar</div>
+                        <div class="flex space-x-2">
+                            <button onclick="showDetailNilai(2)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
+                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyek 3 -->
+                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
+                        <div class="text-sm">Proyek 3 - Pengembangan Website Da Cafe</div>
+                        <div class="flex space-x-2">
+                            <button onclick="showDetailNilai(3)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
+                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyek 4 -->
+                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
+                        <div class="text-sm">Proyek 4 - Pengembangan Website Laundry</div>
+                        <div class="flex space-x-2">
+                            <button onclick="showDetailNilai(4)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
+                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyek 5 -->
+                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
+                        <div class="text-sm">Proyek 5 - Pengembangan Aplikasi Perpajakan</div>
+                        <div class="flex space-x-2">
+                            <button onclick="showDetailNilai(5)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
+                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyek 6 -->
+                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
+                        <div class="text-sm">Proyek 6 - Pengembangan Website Drax Learn</div>
+                        <div class="flex space-x-2">
+                            <button onclick="showDetailNilai(6)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
+                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Form Login Dosen (Hidden secara default) -->
-            <div id="dosenLoginForm" class="hidden bg-white shadow-md rounded-lg p-6 w-96 text-center">
-                <h2 class="text-lg font-bold mb-4">Login Dosen</h2>
-                <form action="{{ route('penilaian') }}" method="GET">
-                    <div class="mb-4 text-left">
-                        <label class="block text-gray-700">Username</label>
-                        <input type="text" name="username" required class="w-full p-2 border rounded">
+            <!-- Detail Nilai Popup -->
+            <div id="detailNilaiPopup" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+                    <h3 id="popupTitle" class="text-lg font-bold mb-4">Nilai Proyek 1 - Manajemen Proyek</h3>
+                    
+                    <div class="space-y-3 mb-4">
+                        <div class="flex justify-between">
+                            <span>Nilai Dosen:</span>
+                            <span>60</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Nilai Teaching Assistant:</span>
+                            <span>80</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Rata-Rata Nilai dari Anggota:</span>
+                            <span>85</span>
+                        </div>
+                        <div class="flex justify-between font-bold">
+                            <span>Total Nilai:</span>
+                            <span>80</span>
+                        </div>
                     </div>
-                    <div class="mb-4 text-left">
-                        <label class="block text-gray-700">Password</label>
-                        <input type="password" name="password" required class="w-full p-2 border rounded">
+                    
+                    <div class="flex justify-center space-x-2">
+                        <button class="bg-gray-200 px-2 py-1 rounded">&lt;</button>
+                        <span class="px-2 py-1">1</span>
+                        <button class="bg-gray-200 px-2 py-1 rounded">&gt;</button>
                     </div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded w-full">Login</button>
-                </form>
-            </div>
-
-            <!-- Form Login Mahasiswa (Hidden secara default) -->
-            <div id="mahasiswaLoginForm" class="hidden bg-white shadow-md rounded-lg p-6 w-96 text-center">
-                <h2 class="text-lg font-bold mb-4">Login Mahasiswa</h2>
-                <form action="{{ route('penilaian2') }}" method="GET">
-                    <div class="mb-4 text-left">
-                        <label class="block text-gray-700">Username</label>
-                        <input type="text" name="username" required class="w-full p-2 border rounded">
+                    
+                    <div class="mt-6 text-center">
+                        <button onclick="closePopup()" class="bg-blue-500 text-white px-4 py-2 rounded">Tutup</button>
                     </div>
-                    <div class="mb-4 text-left">
-                        <label class="block text-gray-700">Password</label>
-                        <input type="password" name="password" required class="w-full p-2 border rounded">
-                    </div>
-                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded w-full">Login</button>
-                </form>
+                </div>
             </div>
         </main>
     </div>
