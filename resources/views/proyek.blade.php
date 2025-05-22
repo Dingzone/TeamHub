@@ -30,8 +30,6 @@
         <nav class="space-y-4">
             <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
             <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
-            <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
-            <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
             <a href="{{ route('rekap') }}" class="block p-2 hover:bg-gray-200 rounded">📊 Rekap</a>
             <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
             <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>

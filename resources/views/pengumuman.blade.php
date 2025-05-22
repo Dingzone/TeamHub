@@ -14,8 +14,6 @@
         <nav class="space-y-2">
             <a href="#" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
             <a href="#" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
-            <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
-            <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
             <a href="#" class="block p-2 hover:bg-gray-200 rounded">📅 Tugas & Deadline</a>
             <a href="#" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
         </nav>

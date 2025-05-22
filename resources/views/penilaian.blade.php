@@ -77,9 +77,8 @@
 
     <script>
       const projects = [
-        { id: 1, name: 'Proyek 1 - Sistem Manajemen Bencana' },
-        { id: 2, name: 'Proyek 2 - Aplikasi E-Learning' },
-        { id: 3, name: 'Proyek 3 - Sistem Keuangan Kampus' }
+        { id: 1, name: 'Proyek 1 - Pelaporan Bencana' },
+        { id: 2, name: 'Proyek 2 - Proyek Contoh' }
       ];
 
       const projectListEl = document.getElementById('projectList');

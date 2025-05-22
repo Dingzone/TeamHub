@@ -116,3 +116,7 @@ Route::get('/halamandetailproyek/{kategori}', function ($kategori) {
     // Pengumuman
     Route::view('/pengumuman', 'pengumuman')->name('pengumuman');
 });
+
+Route::get('/rekap/nilai/{proyek}', function ($proyek) {
+    return view('rekap2', ['proyek' => $proyek]);
+})->name('rekap.nilai');

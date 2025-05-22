@@ -19,7 +19,7 @@
         }
         function showDetailNilai(proyek) {
             document.getElementById('detailNilaiPopup').classList.remove('hidden');
-            document.getElementById('popupTitle').innerText = 'Nilai Proyek ' + proyek + ' - Manajemen Proyek';
+            document.getElementById('popupTitle').innerText = 'Nilai Proyek ' + proyek + ' - Pelaporan Bencana';
         }
         function closePopup() {
             document.getElementById('detailNilaiPopup').classList.add('hidden');
@@ -34,8 +34,6 @@
             <nav class="space-y-4">
                 <a href="{{ route('dashboard') }}" class="block p-2 hover:bg-gray-200 rounded">🏠 Home</a>
                 <a href="{{ route('proyek') }}" class="block p-2 hover:bg-gray-200 rounded">📁 Proyek</a>
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">📝 Notes</a>
-                <a href="#" class="block p-2 hover:bg-gray-200 rounded">👥 Daftar Tim</a>
                 <a href="{{ route('rekap') }}" class="block p-2 hover:bg-gray-200 rounded font-bold">📊 Rekap</a>
                 <a href="{{ route('datugas') }}" class="block p-2 hover:bg-gray-200 rounded">📅 Daftar Tugas Dan Deadline</a>
                 <a href="{{ route('forum') }}" class="block p-2 hover:bg-gray-200 rounded">💬 Diskusi Tim</a>
@@ -52,64 +50,28 @@
                 <div class="space-y-4">
                     <!-- Proyek 1 -->
                     <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
-                        <div class="text-sm">Proyek 1 - Manajemen Proyek</div>
+                        <div class="text-sm">Proyek 1 - Pelaporan Bencana</div>
                         <div class="flex space-x-2">
                             <button onclick="showDetailNilai(1)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
-                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                            <a href="{{ route('rekap.nilai', ['proyek' => 1]) }}" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
                         </div>
                     </div>
                     
                     <!-- Proyek 2 -->
                     <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
-                        <div class="text-sm">Proyek 2 - Aplikasi Distribusi Pasar</div>
+                        <div class="text-sm">Proyek 2 - Proyek Contoh</div>
                         <div class="flex space-x-2">
                             <button onclick="showDetailNilai(2)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
-                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
+                            <a href="{{ route('rekap.nilai', ['proyek' => 1]) }}" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
                         </div>
                     </div>
                     
-                    <!-- Proyek 3 -->
-                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
-                        <div class="text-sm">Proyek 3 - Pengembangan Website Da Cafe</div>
-                        <div class="flex space-x-2">
-                            <button onclick="showDetailNilai(3)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
-                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Proyek 4 -->
-                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
-                        <div class="text-sm">Proyek 4 - Pengembangan Website Laundry</div>
-                        <div class="flex space-x-2">
-                            <button onclick="showDetailNilai(4)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
-                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Proyek 5 -->
-                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
-                        <div class="text-sm">Proyek 5 - Pengembangan Aplikasi Perpajakan</div>
-                        <div class="flex space-x-2">
-                            <button onclick="showDetailNilai(5)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
-                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Proyek 6 -->
-                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded">
-                        <div class="text-sm">Proyek 6 - Pengembangan Website Drax Learn</div>
-                        <div class="flex space-x-2">
-                            <button onclick="showDetailNilai(6)" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">Detail Nilai</button>
-                            <a href="#" class="bg-blue-500 text-white px-3 py-1 text-sm rounded inline-block">Nilai</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                   
 
             <!-- Detail Nilai Popup -->
             <div id="detailNilaiPopup" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
                 <div class="bg-white rounded-lg shadow-lg p-6 w-96">
-                    <h3 id="popupTitle" class="text-lg font-bold mb-4">Nilai Proyek 1 - Manajemen Proyek</h3>
+                    <h3 id="popupTitle" class="text-lg font-bold mb-4">Nilai Proyek 1 - Pelaporan Bencana</h3>
                     
                     <div class="space-y-3 mb-4">
                         <div class="flex justify-between">
