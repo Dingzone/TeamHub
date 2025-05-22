@@ -50,7 +50,7 @@
                     type="text" 
                     id="username" 
                     name="username" 
-                    placeholder="Masukkan username (bebas)" 
+                    placeholder="Masukkan username" 
                     class="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none" 
                     required>
                 @error('username')
@@ -64,7 +64,7 @@
                     type="password" 
                     id="password" 
                     name="password" 
-                    placeholder="Masukkan password (bebas)" 
+                    placeholder="Masukkan password" 
                     class="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none" 
                     required>
                 @error('password')
