@@ -7,21 +7,20 @@ $forums = [
     [
         'id' => 1,
         'icon' => '.',
-        'title' => 'Kolaborasi PBL',
+        'title' => 'Pelaporan Bencana',
         'messages' => [
-            ['sender' => 'Dini', 'content' => 'Ini adalah pesan pertama.', 'time' => '09:15'],
-            ['sender' => 'Masnida', 'content' => 'Selamat bekerja sama', 'time' => '10:30'],
-            ['sender' => 'Dini', 'content' => 'Mas, untuk proyek website Kolaborasi PBL, kita pakai metode apa ya?', 'time' => '10:45'],
-            ['sender' => 'Masnida', 'content' => 'Kita coba pakai metode Waterfall saja biar lebih terstruktur.', 'time' => '10:47'],
-            ['sender' => 'Dini', 'content' => 'Oke, berarti kita mulai dari tahap requirement dulu ya?', 'time' => '10:48'],
-            ['sender' => 'Masnida', 'content' => 'Iya, setelah itu lanjut ke desain, implementasi, testing, dan terakhir deployment.', 'time' => '10:50'],
-            ['sender' => 'Dini', 'content' => 'Sip, aku mulai kumpulkan kebutuhan fungsional dan non-fungsional dulu.', 'time' => '10:52'],
-            ['sender' => 'Masnida', 'content' => 'Mantap! Nanti kalau sudah, aku bantu buat desain UI/UX-nya.', 'time' => '10:53'],
-            ['sender' => 'Fresky', 'content' => 'Aku bisa bantu di bagian implementasi nanti, khususnya backend-nya.', 'time' => '10:55'],
-            ['sender' => 'Yenisa', 'content' => 'Aku fokus ke dokumentasi dan pelaporan setiap fase ya.', 'time' => '10:56'],
-            ['sender' => 'Exsaudi', 'content' => 'Testing aku yang handle, dari unit test sampai integrasi.', 'time' => '10:57'],
-            ['sender' => 'Fanny', 'content' => 'Kalau begitu, aku bantu di bagian deployment dan monitoring setelah selesai.', 'time' => '10:58'],
-            ['sender' => 'Anda', 'content' => 'Saya akan membantu fresky dalam implementasi', 'time' => '11:45']
+            ['sender' => 'Fresky', 'content' => 'Ini adalah pesan pertama.', 'time' => '09:15'],
+            ['sender' => 'John', 'content' => 'Selamat bekerja sama', 'time' => '10:30'],
+            ['sender' => 'Fresky', 'content' => 'Untuk laporan bencana, data dari mana kita ambil?', 'time' => '10:45'],
+            ['sender' => 'John', 'content' => 'Kita ambil dari API BMKG dan laporan warga.', 'time' => '10:47'],
+            ['sender' => 'Fresky', 'content' => 'Oke, berarti tahap pertama kita integrasikan API dulu ya?', 'time' => '10:48'],
+            ['sender' => 'John', 'content' => 'Iya, setelah itu kita buat UI untuk laporannya.', 'time' => '10:50'],
+            ['sender' => 'Fresky', 'content' => 'Sip, aku mulai coding backend-nya.', 'time' => '10:52'],
+            ['sender' => 'John', 'content' => 'Mantap! Aku bantu desain UI/UX-nya.', 'time' => '10:53'],
+            ['sender' => 'Exaudi', 'content' => 'Aku bisa bantu implementasi frontend-nya.', 'time' => '10:55'],
+            ['sender' => 'Mike', 'content' => 'Saya fokus ke dokumentasi dan testing.', 'time' => '10:56'],
+            ['sender' => 'Lisa', 'content' => 'Aku handle integrasi dan laporan akhir.', 'time' => '10:57'],
+            ['sender' => 'Anda', 'content' => 'Saya akan membantu Fresky dalam implementasi', 'time' => '11:45']
         ]
     ],
 ];
